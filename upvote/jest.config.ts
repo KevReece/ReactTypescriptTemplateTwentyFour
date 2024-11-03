@@ -1,4 +1,6 @@
-export default {
+import { Config } from "jest";
+
+const config:Config = {
   testEnvironment: "jsdom",
   transform: {
     "^.+\\.tsx?$": "ts-jest",
@@ -12,3 +14,5 @@ export default {
 
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };
+
+export default config;
