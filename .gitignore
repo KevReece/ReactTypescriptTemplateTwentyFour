@@ -23,4 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 
+# dotenv
 .env
+
+# prisma
+dev.db
+dev.db-journal
+upvoteApi/prisma/migrations/migration_lock.toml

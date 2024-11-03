@@ -6,11 +6,13 @@ class ApiClient {
 
   public getItems = async () => {
     const response = await axios.get<string[]>(this.BaseUrl);
+    console.debug('Response received for getItems:')
+    console.debug(response)
     if (response?.status === 200){
       return response.data;
     }
     console.error(`Unexpected API response, status text: ${response?.statusText}`);
-    return [];
+    return Promise.resolve([]);
   }
 }
 

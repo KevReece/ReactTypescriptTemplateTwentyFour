@@ -1,9 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 
 class ItemQueryService {
-  public get() {
+  public async get() {
     const prismaClient = new PrismaClient();
-    return prismaClient.items.all();
+    return await prismaClient.item.findMany();
   }
 }
 
