@@ -1,11 +1,19 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import ApiClient from './apiClient';
 
 
 function App() {
   const [items, setItems] = useState<string[]>([]);
+  const apiClient = new ApiClient();
 
-  useEffect(() => setItems(['Item1']), []);
+  useEffect(() => {
+    const fetchItems = async () => {
+      setItems(await apiClient.getItems())
+    };
+
+    fetchItems();
+  }, [apiClient]);
 
   return (
     <>

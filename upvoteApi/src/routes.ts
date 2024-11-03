@@ -3,7 +3,7 @@ import Router, {Request, Response} from 'express'
 const router = Router();
 
 router.get('/', (req: Request, res: Response) => {
-    res.status(200).json({ 'test': 'value'})
+    res.status(200).json(['test']);
 });
 
 export default router;
