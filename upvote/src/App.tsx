@@ -1,28 +1,17 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import ApiClient from './ApiClient';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import Admin from './Admin';
 
 
 function App() {
-  const [items, setItems] = useState<string[]>([]);
-
-  useEffect(() => {
-    const apiClient = new ApiClient();
-    const fetchItems = async () => {
-      setItems(await apiClient.getItems())
-    };
-
-    fetchItems();
-  }, []);
-
   return (
     <>
-      <h1>Upvote</h1>
-      <div className="card">
-        <ol>
-          {items.map((itemText, itemIndex) => <li key={itemIndex}>{itemText}</li>)}
-        </ol>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/admin' element={<Admin />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

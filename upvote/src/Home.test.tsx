@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-describe('app', () =>{
+describe('Home', () =>{
   it('handles empty item list', () => {
     jest.mock('./ApiClient', () => { getItems: async () => Promise.resolve([])})
 
