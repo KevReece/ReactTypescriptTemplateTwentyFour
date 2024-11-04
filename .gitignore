@@ -29,4 +29,4 @@ dist-ssr
 # prisma
 dev.db
 dev.db-journal
-upvoteApi/prisma/migrations/migration_lock.toml
+api/prisma/migrations/migration_lock.toml
