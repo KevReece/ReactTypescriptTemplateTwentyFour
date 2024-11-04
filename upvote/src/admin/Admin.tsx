@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import ApiClient from "./ApiClient";
-import { Item } from "./Item";
+import ApiClient from "../api/ApiClient";
+import { Item } from "../api/Item";
 
 function Admin(){
 
@@ -29,7 +29,7 @@ function Admin(){
         <input id='ItemText' name='ItemText' value={itemText} onChange={changeText}></input>
         <button type='submit'>Submit item</button>
       </form> 
-      { createdItem?.id && <p>Successfully created item with ID: {createdItem.id}</p> }
+      { createdItem?.id && <><p>Successfully created item with ID:</p><p>{createdItem.id}</p></> }
     </>;
 }
 

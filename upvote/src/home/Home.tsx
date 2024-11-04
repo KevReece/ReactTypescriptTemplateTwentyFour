@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-import './App.css'
-import ApiClient from './ApiClient';
-import { Item } from './Item';
+import ApiClient from '../api/ApiClient';
+import { Item } from '../api/Item';
 
 
 function Home() {
