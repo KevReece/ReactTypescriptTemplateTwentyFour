@@ -24,12 +24,16 @@ function Admin(){
 
   return <>
       <h1>Upvote Admin</h1>
-      <form onSubmit={submit}>
+      <form onSubmit={submit} className="admin-form">
         <label htmlFor='ItemText'>Item text:</label>
-        <input id='ItemText' name='ItemText' value={itemText} onChange={changeText}></input>
+        <input id='ItemText' type="text" name='ItemText' value={itemText} onChange={changeText}>
+        </input>
         <button type='submit'>Submit item</button>
       </form> 
-      { createdItem?.id && <><p>Successfully created item with ID:</p><p>{createdItem.id}</p></> }
+      { createdItem?.id && <p className="successMessage">
+          <span>Successfully created item with ID: </span>
+          <span>{createdItem.id}</span>
+        </p> }
     </>;
 }
 
