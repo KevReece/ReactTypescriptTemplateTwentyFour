@@ -1,10 +1,11 @@
 # Basic Typescript React Template
 
-Mildly opinionated template for a basic Typescript React project.
+Mildly opinionated template for a basic Typescript React and Node project. Useful for bootstrapping
+a new project.
 
 ## Given Example Application
 
-Root page lists items from a database, and allows item upvoting. Items are ordered by 60 seconds of upvotes, then descending created data. Items are added from the /Admin page.
+`/` page lists text items from a database, created from the `/Admin` page.
 
 ## Opinions
 
@@ -13,11 +14,16 @@ Opinions taken:
 - Vite for React frontend
 - Jest for testing
 - Prisma for database migrations/client
-- Sqlite database
+- Sqlite database (for simplicity and generality)
 
-Further opinions needed to scale:
+Further stack opinions needed to scale:
 - Zod for API schema validation
 - Zustand for state management
+- Styling framework
+- Storybook for component library
+- Docker for containerisation
+- Kubernetes for container orchestration
+- Github actions for CI/CD
 
 ## Quick start
 
