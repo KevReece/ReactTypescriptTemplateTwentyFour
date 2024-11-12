@@ -1,4 +1,6 @@
+import { PrismaClient } from "@prisma/client";
 import ItemService from "./ItemService";
+import { CreateItem } from "./Item";
 
 const generateRandomString = (length: number): string => {
   const possibleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -9,15 +11,22 @@ const generateRandomString = (length: number): string => {
 }
 
 describe('ItemService', () => {
-  it('adds and gets from DB', async () => {
-    const itemQueryService = new ItemService();
-    const itemText = generateRandomString(8);
 
-    const posted = await itemQueryService.add(itemText);
+  let prismaClient: PrismaClient;
+
+  beforeEach(() => {
+    prismaClient = new PrismaClient();
+  })
+
+  it('adds and gets from DB', async () => {
+    const itemQueryService = new ItemService(prismaClient);
+    const item: CreateItem = { text: generateRandomString(8) };
+
+    const posted = await itemQueryService.add(item);
     const items = await itemQueryService.get();
 
     expect(posted).toBeTruthy();
-    const lastItemText = items?.at(-1)?.text;
-    expect(lastItemText).toEqual(itemText);
+    const firstItemText = items?.at(0)?.text;
+    expect(firstItemText).toEqual(item.text);
   });
 });

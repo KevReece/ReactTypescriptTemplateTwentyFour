@@ -15,9 +15,9 @@ Opinions taken:
 - Jest for testing
 - Prisma for database migrations/client
 - Sqlite database (for simplicity and generality)
+- Zod for API schema validation
 
 Further stack opinions needed to scale:
-- Zod for API schema validation
 - Zustand for state management
 - Styling framework
 - Storybook for component library

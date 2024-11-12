@@ -1,4 +1,4 @@
 First Setup
 ---
 
-0. npx prisma migrate dev --name init
+1. npx prisma migrate dev --name init

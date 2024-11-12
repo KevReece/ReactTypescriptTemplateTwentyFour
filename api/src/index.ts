@@ -1,14 +1,20 @@
 import express from 'express';
 import cors from 'cors';
-import routes from './routes';
-
+import { PrismaClient } from '@prisma/client';
+import { errorHandler } from './appErrorHandler';
+import { applyAsyncProcessExit } from './appTearDown';
+import { applyRoutes } from './appRouting';
 
 const app = express();
-
+const prisma = new PrismaClient();
 app.use(cors());
 app.use(express.json());
-app.use(routes);
+applyRoutes(app, prisma);
+app.use(errorHandler);
 
-const Port = 8081;
+const PORT = process.env.PORT || 8081;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
-app.listen(Port, () => console.log('listening'));
+applyAsyncProcessExit(prisma);
